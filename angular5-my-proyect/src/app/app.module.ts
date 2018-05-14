@@ -9,6 +9,12 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CyclistFormComponent } from './cyclist-form/cyclist-form.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+import { CyclistListComponent } from './cyclist-list/cyclist-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -16,11 +22,16 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     HeaderComponent,
     MenuComponent,
     CyclistFormComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    CyclistListComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
