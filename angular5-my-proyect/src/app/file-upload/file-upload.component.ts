@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { FileUploadService } from 'file-upload.service';
+
 
 @Component({
   selector: 'app-file-upload',
@@ -18,12 +20,12 @@ export class FileUploadComponent implements OnInit {
     this.fileToUpload = files.item(0);
   }
 
-  uploadFileToActivity() {
-    this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
-      // do something, if upload success
-      }, error => {
-        console.log(error);
-      });
-  }
+  // uploadFileToActivity() {
+  //   this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
+  //     // do something, if upload success
+  //     }, error => {
+  //       console.log(error);
+  //     });
+  // }
 
 }
