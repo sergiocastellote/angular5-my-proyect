@@ -21,9 +21,18 @@ export class CyclistListComponent implements OnInit {
   //   });
   // }
 
+  // getCyclist(): void {
+  //   this.cyclist = this.cyclistService.getCyclist();
+  //   console.log('ciclistas', this.cyclist);
+  // }
+
   getCyclist(): void {
-    this.cyclist = this.cyclistService.getCyclist();
-    console.log('ciclistas', this.cyclist);
+    this.cyclistService.getCyclist()
+    .subscribe(cyclist => {
+      this.cyclist = cyclist;
+      console.log('ciclistas', this.cyclist);
+    });
+    
   }
 
 
