@@ -1,5 +1,6 @@
+import { CyclistService } from './../cyclist.service';
+import { Cyclist } from './../cyclist';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-cyclist-list',
@@ -8,9 +9,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CyclistListComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  cyclist: Cyclist[];
+
+  constructor(private cyclistService: CyclistService) { }
+
+  getCyclist(): void {
+    this.cyclistService.getCyclist();
+    // .subscribe(cyclist => {
+    //   this.cyclist = cyclist;
+    //   console.log('lista de ciclistas' + this.cyclist);
+    // });
+  }
 
   ngOnInit() {
+    this.getCyclist();
   }
 
 }
+
+
