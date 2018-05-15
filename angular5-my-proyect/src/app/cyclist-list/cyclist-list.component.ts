@@ -13,13 +13,20 @@ export class CyclistListComponent implements OnInit {
 
   constructor(private cyclistService: CyclistService) { }
 
+  // getCyclist(): void {
+  //   this.cyclistService.getCyclist();
+  //   .subscribe(cyclist => {
+  //     this.cyclist = cyclist;
+  //     console.log('lista de ciclistas' + this.cyclist);
+  //   });
+  // }
+
   getCyclist(): void {
-    this.cyclistService.getCyclist();
-    // .subscribe(cyclist => {
-    //   this.cyclist = cyclist;
-    //   console.log('lista de ciclistas' + this.cyclist);
-    // });
+    this.cyclist = this.cyclistService.getCyclist();
+    console.log('ciclistas', this.cyclist);
   }
+
+
 
   ngOnInit() {
     this.getCyclist();
