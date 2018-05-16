@@ -35,8 +35,6 @@ export class CyclistListComponent implements OnInit {
     
   }
 
-
-
   ngOnInit() {
     this.getCyclist();
   }

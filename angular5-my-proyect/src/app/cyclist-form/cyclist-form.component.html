@@ -1,22 +1,22 @@
 <!-- Main -->
 <div id="main">
-
+<p style="color: brown">{{this.cyclist}}</p>
   <!-- Post -->
   <section class="post">
     <header class="major">
       <h3 class="date">Añade
         <br>ciclista</h3>
     </header>
-    <form method="post" action="#">
+    <!-- <form> -->
       <div class="field">
         <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" />
+        <input [(ngModel)]="cyclist.name" type="text" name="name" id="name" />
       </div>
       <div class="field">
         <label for="name">Apellidos</label>
-        <input type="text" name="name" id="name" />
+        <input  [(ngModel)]="cyclist.surname" type="text" name="name" id="name" />
       </div>
-      <app-file-upload></app-file-upload>
+      <!-- <app-file-upload></app-file-upload> -->
       <!-- <div class="field">
                       <label for="email">Email</label>
                       <input type="text" name="email" id="email" />
@@ -26,11 +26,15 @@
                       <textarea name="message" id="message" rows="3"></textarea>
                     </div> -->
       <ul class="actions">
-        <li>
-          <input type="submit" value="Send Message" />
-        </li>
+        <!-- <li>
+          <input (click)="createCyclist()" value="Crear ciclista" />
+        </li> -->
+        <br>
+        <button (click)="createCyclist(cyclist)">
+            Crear ciclista
+          </button>
       </ul>
-    </form>
+    <!-- </form> -->
   </section>
 
 </div>

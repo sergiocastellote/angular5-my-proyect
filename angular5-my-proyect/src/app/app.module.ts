@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { CyclistListComponent } from './cyclist-list/cyclist-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -33,7 +34,8 @@ import { CyclistListComponent } from './cyclist-list/cyclist-list.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    FormsModule
   ],
   providers: [CyclistService],
   bootstrap: [AppComponent]
