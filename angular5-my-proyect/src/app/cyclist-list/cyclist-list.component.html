@@ -1,5 +1,13 @@
-<h1>
-  cyclist-list works!
-</h1>
-  
 
+<div id="main">
+    <section class="post">
+      <header class="major">
+        <h3 class="date">Listado de
+          <br>ciclistas</h3>
+      </header>
+      <div class="date" *ngFor="let oneCyclist of cyclist">
+          <p><b>Nombre:</b> {{oneCyclist.name}}<br>
+          <b>Apellido:</b> {{oneCyclist.surname}}</p> 
+      </div>
+    </section>  
+  </div>
