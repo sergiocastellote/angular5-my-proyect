@@ -24,7 +24,7 @@ export class CyclistService {
   getCyclist (): Observable<Cyclist[]> {
     return this.http.get<Cyclist[]>(this.cyclistUrl)
     .pipe(
-      tap(cyclist => console.log(`fetched cyclist`))
+      tap(cyclist => console.log(`listado recuperado`))
       // ,
       // catchError(this.handleError())
     )

@@ -20,19 +20,9 @@ export class CyclistFormComponent implements OnInit {
   createCyclist(cyclist: Cyclist){
     this.cyclistService.addCyclist(cyclist)
     .subscribe(cyclist => {
-      this.cyclist = cyclist;
-      console.log('ciclistas', this.cyclist);
-    });
+      console.log('ciclsta creado', this.cyclist);
+    }, error => console.log('error', error));
   }
 
 }
 
-
-// add(name: string): void {
-//   name = name.trim();
-//   if (!name) { return; }
-//   this.heroService.addHero({ name } as Hero)
-//     .subscribe(hero => {
-//       this.heroes.push(hero);
-//     });
-// }
