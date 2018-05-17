@@ -7,7 +7,8 @@ import { CyclistListComponent }      from './cyclist-list/cyclist-list.component
 
 const routes: Routes = [
   { path: 'form', component: CyclistFormComponent },
-  { path: 'list', component: CyclistListComponent}
+  { path: 'list', component: CyclistListComponent},
+  { path: 'detail/:id', component: CyclistFormComponent }
 ];
 
 @NgModule({

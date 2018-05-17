@@ -1,39 +1,31 @@
 <!-- Main -->
 <div id="main">
-<p style="color: brown">{{this.cyclist}}</p>
   <!-- Post -->
   <section class="post">
     <header class="major">
-      <h3 class="date">Añade
+      <h3 *ngIf="create" class="date">Añade
+        <br>ciclista</h3>
+      <h3 *ngIf="!create" class="date">Editar
         <br>ciclista</h3>
     </header>
     <!-- <form> -->
-      <div class="field">
-        <label for="name">Nombre</label>
-        <input [(ngModel)]="cyclist.name" type="text" name="name" id="name" />
-      </div>
-      <div class="field">
-        <label for="name">Apellidos</label>
-        <input  [(ngModel)]="cyclist.surname" type="text" name="name" id="name" />
-      </div>
-      <!-- <app-file-upload></app-file-upload> -->
-      <!-- <div class="field">
-                      <label for="email">Email</label>
-                      <input type="text" name="email" id="email" />
-                    </div>
-                    <div class="field">
-                      <label for="message">Message</label>
-                      <textarea name="message" id="message" rows="3"></textarea>
-                    </div> -->
-      <ul class="actions">
-        <!-- <li>
-          <input (click)="createCyclist()" value="Crear ciclista" />
-        </li> -->
-        <br>
-        <button (click)="createCyclist(cyclist)">
-            Crear ciclista
-          </button>
-      </ul>
+    <div class="field">
+      <label for="name">Nombre</label>
+      <input [(ngModel)]="cyclist.name" type="text" name="name" id="name" />
+    </div>
+    <div class="field">
+      <label for="name">Apellidos</label>
+      <input [(ngModel)]="cyclist.surname" type="text" name="name" id="name" />
+    </div>
+    <ul class="actions">
+      <br>
+      <button *ngIf="create" (click)="createCyclist(cyclist)">
+        Crear ciclista
+      </button>
+      <button *ngIf="!create" (click)="updateCyclist(cyclist)">
+        Actualizar ciclista
+      </button>
+    </ul>
     <!-- </form> -->
   </section>
 

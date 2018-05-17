@@ -1,6 +1,8 @@
 import { CyclistService } from './../cyclist.service';
 import { Cyclist } from './../cyclist';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cyclist-list',
@@ -11,7 +13,7 @@ export class CyclistListComponent implements OnInit {
 
   cyclist: Cyclist[];
 
-  constructor(private cyclistService: CyclistService) { }
+  constructor(private cyclistService: CyclistService, private router: Router) { }
 
   ngOnInit() {
     this.getCyclist();
@@ -33,6 +35,10 @@ export class CyclistListComponent implements OnInit {
         this.getCyclist();
       }, error => console.log('error'));
 
+  }
+
+  updateCyclist(cyclist: Cyclist): void{
+    this.router.navigateByUrl('/detail/' + cyclist.id);
   }
   
 

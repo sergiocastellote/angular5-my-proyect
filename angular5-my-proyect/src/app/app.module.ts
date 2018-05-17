@@ -15,6 +15,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { CyclistListComponent } from './cyclist-list/cyclist-list.component';
 import { FormsModule } from '@angular/forms';
+import { CyclistFornUpdateComponent } from './cyclist-forn-update/cyclist-forn-update.component';
 
 
 
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     CyclistFormComponent,
     FileUploadComponent,
     CyclistListComponent,
+    CyclistFornUpdateComponent,
   ],
   imports: [
     BrowserModule,
