@@ -23,17 +23,29 @@ export class CyclistService {
 
   getCyclist (): Observable<Cyclist[]> {
     return this.http.get<Cyclist[]>(this.cyclistUrl)
+    .pipe(
+      tap(cyclist => console.log(`fetched cyclist`))
+      // ,
+      // catchError(this.handleError())
+    )
   }
 
+  //   getHeroes (): Observable<Hero[]> {
+  //   return this.http.get<Hero[]>(this.heroesUrl)
+  //     .pipe(
+  //       tap(heroes => this.log(`fetched heroes`)),
+  //       catchError(this.handleError('getHeroes', []))
+  //     );
+  // }
   // addCyclist
 
 
   addCyclist (cyclist: Cyclist): Observable<Cyclist> {
     return this.http.post<Cyclist>(this.cyclistUrl, cyclist, httpOptions)
-    
-    // .pipe(
-    //   tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
-    //   catchError(this.handleError<Hero>('addHero'))
-    // );
+    .pipe(
+      tap(cyclist => console.log(`ciclista añadido`))
+      // ,
+      // catchError(this.handleError())
+    )
   }
 }
