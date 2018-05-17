@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs';
-import { CYCLIST } from './cyclist-mock';
 import { Injectable } from '@angular/core';
 import { Cyclist } from './cyclist';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,20 +13,20 @@ const httpOptions = {
 
 @Injectable()
 export class CyclistService {
-  
+
   private cyclistUrl = 'api/cyclist';
 
-  
+
 
   constructor(private http: HttpClient) { }
 
-  getCyclist (): Observable<Cyclist[]> {
+  getCyclist(): Observable<Cyclist[]> {
     return this.http.get<Cyclist[]>(this.cyclistUrl)
-    .pipe(
-      tap(cyclist => console.log(`listado recuperado`))
-      // ,
-      // catchError(this.handleError())
-    )
+      .pipe(
+        tap(cyclist => console.log(`listado recuperado`))
+        // ,
+        // catchError(this.handleError())
+      )
   }
 
   //   getHeroes (): Observable<Hero[]> {
@@ -40,12 +39,24 @@ export class CyclistService {
   // addCyclist
 
 
-  addCyclist (cyclist: Cyclist): Observable<Cyclist> {
+  addCyclist(cyclist: Cyclist): Observable<Cyclist> {
     return this.http.post<Cyclist>(this.cyclistUrl, cyclist, httpOptions)
-    .pipe(
-      tap(cyclist => console.log(`ciclista añadido`))
-      // ,
-      // catchError(this.handleError())
-    )
+      .pipe(
+        tap(cyclist => console.log(`ciclista añadido`))
+        // ,
+        // catchError(this.handleError())
+      )
   }
+
+  /** DELETE: delete the hero from the server */
+  deleteCyclist(cyclist: Cyclist): Observable<Cyclist> {
+    const id = cyclist.id;
+    const url = this.cyclistUrl + '/' + id;
+
+    return this.http.delete<Cyclist>(url, httpOptions).pipe(
+      tap(_ => console.log(`ciclista eliminado`)),
+      // catchError(this.handleError<Hero>('deleteHero'))
+    );
+  }
+
 }

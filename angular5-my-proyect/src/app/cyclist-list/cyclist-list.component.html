@@ -1,13 +1,19 @@
-
 <div id="main">
-    <section class="post">
-      <header class="major">
-        <h3 class="date">Listado de
-          <br>ciclistas</h3>
-      </header>
-      <div class="date" *ngFor="let oneCyclist of cyclist">
-          <p><b>Nombre:</b> {{oneCyclist.name}}<br>
-          <b>Apellido:</b> {{oneCyclist.surname}}</p> 
-      </div>
-    </section>  
-  </div>
+  <section class="post">
+    <header class="major">
+      <h3 class="date">Listado de
+        <br>ciclistas</h3>
+    </header>
+    <div class="date" *ngFor="let oneCyclist of cyclist">
+      <p>
+        <b>Nombre:</b> {{oneCyclist.name}}
+        <br>
+        <b>Apellido:</b> {{oneCyclist.surname}}
+        <br>
+        <button (click)="deleteCyclist(oneCyclist)">
+          Eliminar ciclista
+        </button>
+      </p>
+    </div>
+  </section>
+</div>
