@@ -17,6 +17,10 @@
       <label for="name">Apellidos</label>
       <input [(ngModel)]="cyclist.surname" type="text" name="name" id="name" />
     </div>
+    <div class="field">
+      <label for="file">Escoge imagen</label>
+      <input type="file" id="file" [(ngModel)]="cyclist.image">
+    </div>
     <ul class="actions">
       <br>
       <button *ngIf="create" (click)="createCyclist(cyclist)">

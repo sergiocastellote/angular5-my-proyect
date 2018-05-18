@@ -8,8 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CyclistFormComponent } from './cyclist-form/cyclist-form.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -26,7 +24,6 @@ import { CyclistFornUpdateComponent } from './cyclist-forn-update/cyclist-forn-u
     HeaderComponent,
     MenuComponent,
     CyclistFormComponent,
-    FileUploadComponent,
     CyclistListComponent,
     CyclistFornUpdateComponent,
   ],
