@@ -29,15 +29,13 @@ export class CyclistService {
       )
   }
 
-  //   getHeroes (): Observable<Hero[]> {
-  //   return this.http.get<Hero[]>(this.heroesUrl)
-  //     .pipe(
-  //       tap(heroes => this.log(`fetched heroes`)),
-  //       catchError(this.handleError('getHeroes', []))
-  //     );
-  // }
-  // addCyclist
-
+  getOneCyclist(id: number): Observable<Cyclist> {
+    const url = `${this.cyclistUrl}/${id}`;
+    return this.http.get<Cyclist>(url).pipe(
+      tap(cyclist => console.log(`ciclista recuperado`)),
+      // catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
+  }
 
   addCyclist(cyclist: Cyclist): Observable<Cyclist> {
     return this.http.post<Cyclist>(this.cyclistUrl, cyclist, httpOptions)
@@ -48,15 +46,28 @@ export class CyclistService {
       )
   }
 
-  /** DELETE: delete the hero from the server */
+  updateCyclist(cyclist: Cyclist): Observable<Cyclist>{
+    return this.http.put<Cyclist>(this.cyclistUrl, cyclist, httpOptions)
+    .pipe(
+      tap(cyclist => console.log('ciclista actualizado'))
+    )
+  }
+  // updateCyclist(cyclist: Cyclist): Observable<Cyclist> {
+  //   return this.http.put(this.cyclist, cyclist, httpOptions).pipe(
+  //     tap(cyclist => console.log('ciclista modificado')),
+  //     // catchError(this.handleError<any>('updateHero'))
+  //   );
+  // }
+
   deleteCyclist(cyclist: Cyclist): Observable<Cyclist> {
     const id = cyclist.id;
     const url = this.cyclistUrl + '/' + id;
 
     return this.http.delete<Cyclist>(url, httpOptions).pipe(
-      tap(_ => console.log(`ciclista eliminado`)),
+      tap(cyclist => console.log(`ciclista eliminado`)),
       // catchError(this.handleError<Hero>('deleteHero'))
     );
   }
 
+  
 }
