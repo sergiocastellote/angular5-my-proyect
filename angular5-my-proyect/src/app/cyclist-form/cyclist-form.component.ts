@@ -40,7 +40,7 @@ export class CyclistFormComponent implements OnInit {
     this.cyclistService.updateCyclist(cyclist)
       .subscribe(cyclist => {
         console.log('ciclista modificado', this.cyclist);
-        this.cyclist = new Cyclist();
+        this.router.navigateByUrl('/list');
       }, error => console.log('error', error))
   }
 
