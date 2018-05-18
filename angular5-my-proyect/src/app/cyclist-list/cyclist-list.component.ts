@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { CyclistService } from './../cyclist.service';
 import { Cyclist } from './../cyclist';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class CyclistListComponent implements OnInit {
 
   cyclist: Cyclist[];
+  name: string;
+  cyclistObj: Cyclist;
 
   constructor(private cyclistService: CyclistService, private router: Router) { }
 
@@ -28,6 +31,16 @@ export class CyclistListComponent implements OnInit {
 
   }
 
+  searchCyclist(name): void {
+    let filteredList = [];
+    this.cyclist.forEach(function (obj) {
+      if (obj.name === name) {
+        filteredList.push(obj);
+      }
+    })
+    this.cyclist = filteredList;
+  }
+
   deleteCyclist(cyclist: Cyclist): void {
     this.cyclistService.deleteCyclist(cyclist)
       .subscribe(cyclist => {
@@ -37,10 +50,14 @@ export class CyclistListComponent implements OnInit {
 
   }
 
-  updateCyclist(cyclist: Cyclist): void{
+  updateCyclist(cyclist: Cyclist): void {
     this.router.navigateByUrl('/detail/' + cyclist.id);
   }
-  
+
+  cleanSearch(): void{
+    this.getCyclist();
+  }
+
 
 
 
