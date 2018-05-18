@@ -32,6 +32,7 @@ export class CyclistFormComponent implements OnInit {
     this.cyclistService.addCyclist(cyclist)
       .subscribe(cyclist => {
         console.log('ciclsta creado', this.cyclist);
+        this.cyclist = new Cyclist();
       }, error => console.log('error', error));
   }
 
@@ -39,6 +40,7 @@ export class CyclistFormComponent implements OnInit {
     this.cyclistService.updateCyclist(cyclist)
       .subscribe(cyclist => {
         console.log('ciclista modificado', this.cyclist);
+        this.cyclist = new Cyclist();
       }, error => console.log('error', error))
   }
 
@@ -46,7 +48,7 @@ export class CyclistFormComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.cyclistService.getOneCyclist(id)
       .subscribe(cyclist => {
-        this.cyclist = cyclist
+        this.cyclist = cyclist;
       });
   }
 
