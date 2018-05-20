@@ -6,8 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
 
+  ngOnInit(): void {
+    this.router.navigateByUrl('/list');
+  }
   constructor(public router: Router) { }
 
 }
