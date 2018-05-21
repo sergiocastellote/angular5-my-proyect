@@ -8,29 +8,30 @@
       <h3 *ngIf="!create" class="date">Editar
         <br>ciclista</h3>
     </header>
-    <!-- <form> -->
-    <div class="field">
-      <label for="name">Nombre</label>
-      <input [(ngModel)]="cyclist.name" type="text" name="name" id="name" />
-    </div>
-    <div class="field">
-      <label for="name">Apellidos</label>
-      <input [(ngModel)]="cyclist.surname" type="text" name="name" id="name" />
-    </div>
-    <div class="field">
-      <label for="file">Escoge imagen</label>
-      <input type="file" id="file" [(ngModel)]="cyclist.img">
-    </div>
-    <ul class="actions">
-      <br>
-      <button *ngIf="create" (click)="createCyclist(cyclist)">
-        Crear ciclista
-      </button>
-      <button *ngIf="!create" (click)="updateCyclist(cyclist)">
-        Actualizar ciclista
-      </button>
-    </ul>
-    <!-- </form> -->
+    <form #contactForm="ngForm">
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input [(ngModel)]="cyclist.name" type="text" name="name" id="name" required/>
+        <!-- <input matInput placeholder="Nombre" #nombre maxlength="80" [(ngModel)]="cyclisst.name" name="Name" required> -->
+      </div>
+      <div class="field">
+        <label for="name">Apellidos</label>
+        <input [(ngModel)]="cyclist.surname" type="text" name="surname" id="surname" required/>
+      </div>
+      <div class="field">
+        <label for="file">Escoge imagen</label>
+        <input type="file" id="file" [(ngModel)]="cyclist.img" name="img">
+      </div>
+      <ul class="actions">
+        <br>
+        <button [disabled]="!contactForm.form.valid" *ngIf="create" (click)="createCyclist(cyclist)">
+          Crear ciclista
+        </button>
+        <button [disabled]="!contactForm.form.valid" *ngIf="!create" (click)="updateCyclist(cyclist)">
+          Actualizar ciclista
+        </button>
+      </ul>
+    </form>
   </section>
 
 </div>

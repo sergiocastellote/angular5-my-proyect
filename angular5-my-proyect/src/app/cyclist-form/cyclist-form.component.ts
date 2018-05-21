@@ -52,6 +52,10 @@ export class CyclistFormComponent implements OnInit {
       });
   }
 
+  onSubmit(): void {
+    alert('hola');
+  }
+
 }
 
 {}
