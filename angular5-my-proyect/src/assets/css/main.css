@@ -4480,3 +4480,15 @@
 		}
 
 	}
+	.title-header {
+		text-align: center;
+		color: white;
+		padding-top: 100px;
+		padding-bottom: 20px;
+	}
+
+	.subtitle-header {
+		text-align: center;
+		color: white;
+		padding-bottom: 100px;
+	}
